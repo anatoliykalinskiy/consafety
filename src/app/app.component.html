@@ -1,2 +1,31 @@
-<h1>{{title}}</h1>
-<app-home></app-home>
+<header class="header">
+    <nav class="nav-top">
+        <li *ngFor="let item of navItems" 
+            routerLinkActive="nav-top__item-active"
+            [routerLinkActiveOptions]="{exact: true}"
+            class="nav-top__item">
+            <a [routerLink]="item.link"
+               class="nav-top__item-link">
+               {{item.name}}
+            </a>
+        </li>
+    </nav>
+    <nav class="nav-auth">
+        <li *ngFor="let item of RegItems" 
+            routerLinkActive="nav-top__item-active"
+            [routerLinkActiveOptions]="{exact: true}"
+            class="nav-auth__item">
+            <a [routerLink]="item.link"
+               class="nav-auth__item-link">
+               {{item.name}}
+            </a>
+        </li>
+    </nav>
+    <!--<div class="login-form" *ngIf="isLoginFormShown">
+        <app-singIn></app-singIn>
+        <app-singUp></app-singUp>
+    </div>-->
+</header>
+
+<!-- Used router-outlet directive to show containing of routing module -->
+<router-outlet></router-outlet>
